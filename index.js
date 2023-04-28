@@ -43,14 +43,20 @@ addButton.addEventListener("click", () => {
     if (index === 2) {
       const cell = document.createElement("td");
       const statusButton = document.createElement("button");
+      statusButton.value = data;
+      statusButton.textContent = statusButton.value;
+
       statusButton.addEventListener("click", () => {
         if (statusButton.value === "read") {
+          console.log("test");
           statusButton.value = "not read";
-        } else {
+          statusButton.textContent = statusButton.value;
+        } else if (statusButton.value === "not read") {
           statusButton.value = "read";
+          statusButton.textContent = statusButton.value;
         }
       });
-      statusButton.textContent = data;
+
       cell.appendChild(statusButton);
 
       row.appendChild(cell);
@@ -74,20 +80,19 @@ mylibrary.forEach((book) => {
       const cell = document.createElement("td");
       const statusButton = document.createElement("button");
       statusButton.value = data;
-      statusButton.textContent = data;
+      statusButton.textContent = statusButton.value;
 
       statusButton.addEventListener("click", () => {
-       
         if (statusButton.value === "read") {
           console.log("test");
           statusButton.value = "not read";
           statusButton.textContent = statusButton.value;
-        } else if (statusButton.value === "not read"){
+        } else if (statusButton.value === "not read") {
           statusButton.value = "read";
           statusButton.textContent = statusButton.value;
         }
       });
-      
+
       cell.appendChild(statusButton);
       row.appendChild(cell);
     } else {
