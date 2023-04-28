@@ -1,0 +1,40 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0; 
+    /* border: 1px solid red; */
+}
+
+body {
+    height: 100%;
+}
+
+main {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+
+}
+
+.form-card {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+
+.form-card label {
+    display: flex;
+    gap: 15px;
+}
+
+.form-card .field-label {
+    width: 20%;
+}
+
+.book-table {
+    width: 100vw;
+    border: 1px solid black;
+}

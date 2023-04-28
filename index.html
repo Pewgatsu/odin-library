@@ -9,13 +9,40 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header>
-        
-    </header>
-    <main></main>
-    <footer>
+   
+    <main>
+        <section class="form-card">
+            
+            <label class="form-group">
+                <span class="field-label">Title</span>
+                <input type="text" class="title" id="title" >
+            </label>
 
-    </footer>
+            <label class="form-group">
+                <span class="field-label">Author</span>
+                <input type="text" class="author" id="author" >
+            </label>
+
+            <button id="add-book">Add Book</button>
+        </section>
+
+        <section class="book-list">
+
+            <table class="book-table" id="book-table">
+                <thead>
+                    <tr>
+                        <th>Title</th>
+                        <th>Author</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+            </table>
+
+        </section>
+    </main>
+ 
 
     <script src="index.js" async defer></script>
   </body>
