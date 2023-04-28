@@ -44,14 +44,30 @@ main {
 
 .book-table button {
     padding: 10px 30px;
-    
     text-transform: uppercase;
     font-size: 0.7rem;
     border: 1px solid #bbb;
     border-radius: 5px;
-    background: none;
     box-sizing: border-box;
+    background: none;
 }
+
+.book-table .delete {
+    color: white;
+    background-color: rgb(248, 113, 113);
+    border: none;
+}
+
+.book-table .delete:hover{
+    background-color: #b91c1c
+}
+
+.book-table .status-button:hover{
+    border-color: white;
+    outline: 1px solid black;
+}
+
+
 
 .book-table th {
     font-weight: 600;

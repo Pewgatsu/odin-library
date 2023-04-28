@@ -25,6 +25,8 @@ let mylibrary = [
   },
 ];
 
+console.log(mylibrary);
+
 function Book(title, author, status) {
   this.title = title;
   this.author = author;
@@ -32,23 +34,25 @@ function Book(title, author, status) {
 }
 
 addButton.addEventListener("click", () => {
+
   const newBook = new Book(
     inputTitle.value,
     inputAuthor.value,
     inputStatus.value
   );
-  const row = document.createElement("tr");
 
+  const row = document.createElement("tr");
+  
   Object.values(newBook).forEach((data, index) => {
+    const cell = document.createElement("td");
     if (index === 2) {
-      const cell = document.createElement("td");
       const statusButton = document.createElement("button");
+      statusButton.classList.add("status-button");
       statusButton.value = data;
       statusButton.textContent = statusButton.value;
 
       statusButton.addEventListener("click", () => {
         if (statusButton.value === "read") {
-          console.log("test");
           statusButton.value = "not read";
           statusButton.textContent = statusButton.value;
         } else if (statusButton.value === "not read") {
@@ -61,30 +65,38 @@ addButton.addEventListener("click", () => {
 
       row.appendChild(cell);
     } else {
-      const cell = document.createElement("td");
       cell.textContent = data;
-      row.appendChild(cell);
     }
+
+    row.appendChild(cell);
   });
 
+  const deleteButton = document.createElement("button");
+  const cell = document.createElement("td");
+  deleteButton.classList.add("delete");
+  deleteButton.textContent = "delete";
+
+
+  cell.appendChild(deleteButton);
+  row.appendChild(cell);
   tableBody.appendChild(row);
 
   mylibrary.push(newBook);
 });
 
-mylibrary.forEach((book) => {
+mylibrary.forEach((book, i) => {
   const row = document.createElement("tr");
 
   Object.values(book).forEach((data, index) => {
+    const cell = document.createElement("td");
+
     if (index === 2) {
-      const cell = document.createElement("td");
       const statusButton = document.createElement("button");
+      statusButton.classList.add("status-button");
       statusButton.value = data;
       statusButton.textContent = statusButton.value;
-
       statusButton.addEventListener("click", () => {
         if (statusButton.value === "read") {
-          console.log("test");
           statusButton.value = "not read";
           statusButton.textContent = statusButton.value;
         } else if (statusButton.value === "not read") {
@@ -92,15 +104,26 @@ mylibrary.forEach((book) => {
           statusButton.textContent = statusButton.value;
         }
       });
-
       cell.appendChild(statusButton);
       row.appendChild(cell);
     } else {
-      const cell = document.createElement("td");
       cell.textContent = data;
-      row.appendChild(cell);
     }
+
+    row.appendChild(cell);
   });
 
+  const deleteButton = document.createElement("button");
+  const cell = document.createElement("td");
+  deleteButton.classList.add("delete");
+
+  deleteButton.textContent = "delete";
+
+  // deleteButton.addEventListener("click", () => {
+  //   mylibrary = mylibrary.filter((_, bookIndex) => bookIndex !== i);
+  // });
+
+  cell.appendChild(deleteButton);
+  row.appendChild(cell);
   tableBody.appendChild(row);
 });
